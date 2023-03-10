@@ -1,0 +1,47 @@
+body{
+  text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  input[type="text"], textarea, label, input[type="submit"], input[type="radio"] {
+    margin-top: 10px;
+  }
+
+  input[type="number"] {
+    margin-left: 20px;
+    width: 40px;
+  }
+  
+  label, input[type="submit"] {
+    width: 200px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  
+  input[type="text"], textarea {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  textarea {
+    height: 150px;
+  }
+
+  #invia {
+    border: 1px solid grey;
+    background: #fff;
+    border-radius: 6px;
+  }
+
+  #error_100 {
+    color: red;
+    display: none;
+  }
+  
