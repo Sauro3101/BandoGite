@@ -26,14 +26,14 @@
           die("Connessione fallita: " . $conn->connect_error);
         }
       
-        $sql = "SELECT * FROM trip";
+        $sql = "SELECT * FROM lotto";
       
         $res = $conn->query($sql);
       
         if ($res->num_rows > 0){
       ?>
-        <label for="trip">Seleziona il viaggio per cui inserire la proposta:</label>
-        <select name="trip" id="trip">
+        <label for="lotto">Seleziona il viaggio per cui inserire la proposta:</label>
+        <select name="lotto" id="lotto">
         <?php
           for ($x = 0; $x < $res->num_rows; $x++) {
             $row = $res->fetch_assoc();
@@ -45,7 +45,7 @@
         </select>
       <?php
         }else{
-          echo "Errore: Nessun viaggio inserito!";
+          echo "Errore: Nessun lotto inserito!";
         }
       ?>
       </div>

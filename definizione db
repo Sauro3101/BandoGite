@@ -1,0 +1,32 @@
+Utente{
+    ID
+    Username
+    Passowrd
+}
+
+Lotto{
+    ID
+    Meta
+    Partenza
+    Giorni
+}
+
+Agenzia{
+    ID
+    Nome
+    Indirizzo
+    Telefono
+    Organizzatore
+    TelefonoOrganizzatore
+    CertificazioneISO
+    Assicurazione
+}
+
+Offerta{
+    ID
+    IDLotto
+    IDAgenzia
+    Prezzo
+    Altro
+    Servizi
+}
