@@ -5,6 +5,16 @@ Utente{
     Amministratore
 }
 
+INSERT INTO Utente (Username, Password, Amministrazione)
+VALUES
+    ('MarioRossi', 'Password123', 0),
+    ('LuigiVerdi', 'SecretPassword', 1),
+    ('GiovanniBianchi', 'Password123', 0),
+    ('PaoloNeri', 'Paolo123', 0),
+    ('AlessandroVerdi', 'Alessandro123', 1),
+    ('ChiaraBianchi', 'Chiara123', 0),
+    ('RobertoRossi', 'Roberto123', 0);
+
 Lotto{
     ID
     Meta
