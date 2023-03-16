@@ -2,5 +2,5 @@
     $host = "localhost";
     $user = "root";
     $pass = "";
-    $db_name = "db_appGite";
+    $db_name = "db_bandogite";
 ?>

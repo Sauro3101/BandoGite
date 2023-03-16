@@ -135,7 +135,7 @@
         <label for="zona">Zona:</label>
         <select name="zona" id="zona">
           <option value="Centrale">Centrale</option>
-          <option value="Semientrale">Semientrale</option>
+          <option value="Semicentrale">Semicentrale</option>
           <option value="Limitrofa">Limitrofa</option>
           <option value="Periferica">Periferica</option>
         </select>
