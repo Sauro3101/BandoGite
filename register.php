@@ -1,4 +1,5 @@
 <?php
+session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $username = $_POST["username"];
   $password = $_POST["password"];
@@ -21,8 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $row = $result->fetch_assoc();
     if (/* credenziali valide */$row["password"] == $password) {
       // Inizia una sessione e imposta una variabile di sessione per indicare che l'utente ha effettuato l'accesso
-      session_start();
-      $_SESSION["logged_in"] = true;
+      $_SESSION["username"] = $username;
   
       // Redirect all'area riservata
       header("Location: offers.php");

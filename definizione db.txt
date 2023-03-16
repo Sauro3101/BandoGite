@@ -2,6 +2,7 @@ Utente{
     ID
     Username
     Passowrd
+    Amministratore
 }
 
 Lotto{

@@ -1,10 +1,9 @@
 <?php
     //error_reporting(E_ERROR | E_PARSE);
     session_start();
-
-    if (isset($_SESSION["logged_in"])) { // se l'utente è già loggato viene automaticamente rimandato alla pagina.
-        header('Location: page_new-offer.php');
-        exit;
+    if(isset($_SESSION["username"])){
+      header('Location: page_new-offer.php');
+      exit;
     }
     
     if (isset($_POST['password'])) {
@@ -30,7 +29,7 @@
         if (/* credenziali valide */$row["Password"] == $password) {
           // Inizia una sessione e imposta una variabile di sessione per indicare che l'utente ha effettuato l'accesso
           session_start();
-          $_SESSION["logged_in"] = true;
+          $_SESSION["username"] = $username;
       
           // Redirect all'area riservata
           header("Location: page_new-offer.php");
@@ -51,7 +50,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="style/login.css">
   <title>Login</title>
 </head>
 <body>
@@ -69,7 +68,7 @@
     <input type="submit" value="Accedi">
   </form>
   <p>Utente non registratto?</p>
-  <a href="register.html">Registrati!</a>
+  <a href="page_register.php">Registrati!</a>
 
 </body>
 </html>

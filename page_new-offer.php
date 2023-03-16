@@ -1,6 +1,6 @@
 <?php
       session_start();
-      if(!$_SESSION["logged_in"]){
+      if(!isset($_SESSION["username"])){
         header("Location: page_login.php");
       }
 ?>
