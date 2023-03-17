@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mar 17, 2023 alle 08:20
--- Versione del server: 10.4.27-MariaDB
--- Versione PHP: 8.2.0
+-- Creato il: Mar 17, 2023 alle 09:37
+-- Versione del server: 10.4.6-MariaDB
+-- Versione PHP: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -36,7 +37,7 @@ CREATE TABLE `agenzia` (
   `TelefonoOrganizzatore` varchar(20) NOT NULL,
   `CertificazioneISO` tinyint(1) NOT NULL,
   `Assicurazione` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `agenzia`
@@ -68,7 +69,7 @@ CREATE TABLE `offerta` (
   `Treno` varchar(50) DEFAULT NULL,
   `Bus` varchar(50) DEFAULT NULL,
   `Esperienza` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `offerta`
@@ -76,13 +77,13 @@ CREATE TABLE `offerta` (
 
 INSERT INTO `offerta` (`ID`, `IDLotto`, `IDAgenzia`, `IDUtente`, `Prezzo`, `Stelle`, `Alunni`, `Zona`, `Mezzi`, `Ristorazione`, `Servizio`, `Treno`, `Bus`, `Esperienza`) VALUES
 (1, 1, 1, 1, 500, '4', 5, 'Centrale', 1, 'Hotel', 'Buffet', 'Alta velocità', 'No', '> 5 anni'),
-(2, 2, 2, 2, 300, '3', 6, 'Limitrofa', 0, 'Ristorante', 'Servito', 'Intercity', '1 Autista', '< 4 anni'),
-(3, 3, 1, 3, 700, '5', 10, 'Periferica', 1, 'Ristorante', 'Buffet', 'Cuccette 4', '2 Autisti', '> 5 anni'),
-(4, 4, 2, 4, 400, '2', 4, 'Centrale', 0, 'Hotel', 'Servito', 'Alta velocità', 'No', 'tra 4 e 5 anni'),
-(5, 5, 3, 5, 600, '5', 20, 'Limitrofa', 1, 'Ristorante', 'Buffet', 'No', 'Viaggio A/R', '> 5 anni'),
-(6, 6, 3, 6, 800, '4', 15, 'Semicentrale', 0, 'Hotel', 'Servito', 'Cuccette 6', '2 Autisti', '> 5 anni'),
-(7, 7, 4, 7, 250, '2', 8, 'Centrale', 1, 'Hotel', 'Servito', 'Cuccette 4', 'No', '< 3 anni'),
-(8, 8, 5, 8, 400, '5', 30, 'Centrale', 1, 'Ristorante', 'Buffet', 'Intercity', '1 Autista', '> 5 anni');
+(2, 2, 2, 1, 300, '3', 6, 'Limitrofa', 0, 'Ristorante', 'Servito', 'Intercity', '1 Autista', '< 4 anni'),
+(3, 5, 1, 1, 700, '5', 10, 'Periferica', 1, 'Ristorante', 'Buffet', 'Cuccette 4', '2 Autisti', '> 5 anni'),
+(4, 1, 2, 1, 400, '2', 4, 'Centrale', 0, 'Hotel', 'Servito', 'Alta velocità', 'No', 'tra 4 e 5 anni'),
+(5, 5, 3, 1, 600, '5', 20, 'Limitrofa', 1, 'Ristorante', 'Buffet', 'No', 'Viaggio A/R', '> 5 anni'),
+(6, 6, 3, 1, 800, '4', 15, 'Semicentrale', 0, 'Hotel', 'Servito', 'Cuccette 6', '2 Autisti', '> 5 anni'),
+(7, 6, 4, 1, 250, '2', 8, 'Centrale', 1, 'Hotel', 'Servito', 'Cuccette 4', 'No', '< 3 anni'),
+(8, 8, 5, 1, 400, '5', 30, 'Centrale', 1, 'Ristorante', 'Buffet', 'Intercity', '1 Autista', '> 5 anni');
 
 -- --------------------------------------------------------
 
@@ -95,7 +96,7 @@ CREATE TABLE `utente` (
   `Username` varchar(20) NOT NULL,
   `Password` varchar(20) NOT NULL,
   `Amministratore` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `utente`
@@ -122,7 +123,7 @@ CREATE TABLE `viaggio` (
   `Meta` varchar(20) NOT NULL,
   `Partenza` varchar(20) NOT NULL,
   `Giorni` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dump dei dati per la tabella `viaggio`

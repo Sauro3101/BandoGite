@@ -1,7 +1,7 @@
 <?php
 // Start the session
       session_start();
-      if (!isset($_SESSION['email'])) { // se l'utente non è loggato viene automaticamente rimandato alla pagina di login.
+      if (!isset($_SESSION['username'])) { // se l'utente non è loggato viene automaticamente rimandato alla pagina di login.
         header('Location: login.php');
         exit;
       }
@@ -14,43 +14,21 @@
   	<link rel="icon" href="Immagini/fav-icon.png" type="image/png">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="https://cdn.ckeditor.com/4.20.2/standard/ckeditor.js"></script>
-	<script>
-		let index = 0;
-		$(document).ready(function() {
-			$("#aggiungi-sezione").click(function() {
-				$("#sezioni").append(`
-					<div class="sezione">
-						<label for="titolo-sezione">Titolo sezione:</label>
-						<input type="text" id="titolo-sezione" name="titolo-sezione`+index+`">
-
-						<label for="contenuto-sezione">Contenuto sezione:</label>
-						<textarea id="contenuto-sezione" name="contenuto-sezione`+index+`" rows="4" cols="50"></textarea>
-
-						<button class="rimuovi-sezione" type="button">Rimuovi sezione</button>
-					</div>
-				`);
-				index++;
-			});
-
-			$(document).on("click", ".rimuovi-sezione", function() {
-				index--;
-				$(this).parent().remove();
-			});
-		});
-	</script>
 </head>
 <body>
 	<div class="navbar">
-		<div class="menu">
-			<a href="gestione_utenti.php">Gestione utenti</a>
-			<a href="gestione_progetti.php">Gestione progetti</a>
-		</div>
+    <div class="menu">
+      <a href="menu.php">Menu</a>
+      <a href="gestione_offerte.php">Gestione offerte</a>
+      <a href="gestione_viaggi.php">Gestione viaggi</a>
+      <a href="gestione_agenzie.php">Gestione agenzie</a>
+    </div>
 		<div class="logout">
 			<a href="backend/logout.php">Logout</a>
 		</div>
 	</div>
 	<div class="form-container">
-		<h1>Nuovo Progetto</h1>
+		<h1>Nuova offerta</h1>
 		<form action="new-offer.php" method="post" onchange="check()">
       <div>
       <?php
@@ -62,7 +40,7 @@
           die("Connessione fallita: " . $conn->connect_error);
         }
       
-        $sql = "SELECT * FROM lotto";
+        $sql = "SELECT * FROM viaggio";
       
         $res = $conn->query($sql);
       

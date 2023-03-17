@@ -26,7 +26,7 @@ form p{
     line-height: 0px;
 }
 
-input[type='email'], [type='password']{
+input[type='text'], [type='password']{
     background-color: white;
     border: 2px solid rgb(220, 220, 222);
     font-family: 'Prompt', sans-serif;

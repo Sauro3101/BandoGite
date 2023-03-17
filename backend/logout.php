@@ -1,6 +1,6 @@
 <?php
       session_start();
-      if (!isset($_SESSION['email'])) { // se l'utente non è loggato viene automaticamente rimandato alla pagina di login.
+      if (!isset($_SESSION['username'])) { // se l'utente non è loggato viene automaticamente rimandato alla pagina di login.
         header('Location: ../login.php');
         exit;
       }

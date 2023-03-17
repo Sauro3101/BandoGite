@@ -1,9 +1,9 @@
 <?php
-      session_start();
-      if (!isset($_SESSION['email'])) { // se l'utente non è loggato viene automaticamente rimandato alla pagina di login.
+      session_start();/*
+      if (!isset($_SESSION['username'])) { // se l'utente non è loggato viene automaticamente rimandato alla pagina di login.
         header('Location: login.php');
         exit;
-      }
+      }*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,7 +19,7 @@
     <div class="menu">
       <a href="menu.php">Menu</a>
       <a href="gestione_offerte.php">Gestione offerte</a>
-      <a href="gestione_viggi.php">Gestione viaggi</a>
+      <a href="gestione_viaggi.php">Gestione viaggi</a>
       <a href="gestione_agenzie.php">Gestione agenzie</a>
     </div>
     <div class="logout">
@@ -27,9 +27,9 @@
     </div>
   </div>
   <div class="container-menu">
-    <h1>Ciao <?php echo $_SESSION['nome']; ?>, benvenuto nell'area di amministrazione!</h1>
+    <h1>Ciao <?php echo $_SESSION['username']; ?>, benvenuto nell'area di amministrazione!</h1>
     <a href="gestione_offerte.php" class="btn">Gestione offerte</a>
-    <a href="gestione_viggi.php" class="btn">Gestione viaggi</a>
+    <a href="gestione_viaggi.php" class="btn">Gestione viaggi</a>
     <a href="gestione_agenzie.php" class="btn">Gestione agenzie</a>
   </div>
     <nav>
@@ -45,9 +45,6 @@
           <button type="submit">Cerca</button>
         </form>
       </div>
-      <div class="add-project">
-        <a href="inserisciProg.php">Inserisci Progetto</a>
-      </div>
     </nav>
   <div class="container">
       <table>
@@ -56,9 +53,8 @@
         <th class="td_titolo">Meta</th>
         <th class="td_anno">Data inizio</th>
         <th class="td_classi">Giorni</th>
-        <th class="td_docenti">Docenti referenti</th>
+        <th class="td_classi">Prezzo</th>
         <th class="td_utente">Utente</th>
-        <th class="td_azione">Azione</th>
       </tr>
       <?php
       // Connessione al database
@@ -71,11 +67,11 @@
         unset($_POST['search']);
         
         // Query per selezionare il progetto cercato
-        $sql = "SELECT * FROM progetto WHERE TitoloProg LIKE '%$tit%' OR AnnoInizio LIKE '%$tit%' OR DocentiReferenti LIKE '%$tit%'";
+        $sql = "SELECT offerta.*, viaggio.Meta, viaggio.partenza, viaggio.giorni FROM `offerta` INNER JOIN 'viaggio' ON viaggio.ID = offerta.IDLotto WHERE viaggio.meta LIKE '%$tit%'";
         
       }else{
         // Query per selezionare tutti i progetti
-        $sql = "SELECT * FROM progetto";
+        $sql = "SELECT offerta.ID AS idd, offerta.prezzo, offerta.IDUtente, viaggio.Meta, viaggio.partenza, viaggio.giorni FROM offerta INNER JOIN viaggio ON viaggio.ID = offerta.IDLotto";
       }
 
       $result = mysqli_query($conn, $sql);
@@ -84,28 +80,12 @@
       while ($row = mysqli_fetch_array($result)) {
       ?>
         <tr>
-      <td class="td_id"><?php echo $row['IDProgetto']; ?></td>
-      <td class="td_titolo"><?php echo $row['TitoloProg']; ?></td>
-      <td class="td_anno"><?php echo $row['AnnoInizio']; ?></td>
-      <td class="td_docenti"><?php echo $row['DocentiReferenti']; ?></td>
-      <td class="td_classi"><?php echo $row['classi']; ?></td>
+      <td class="td_id"><?php echo $row['idd']; ?></td>
+      <td class="td_titolo"><?php echo $row['Meta']; ?></td>
+      <td class="td_anno"><?php echo $row['partenza']; ?></td>
+      <td class="td_classi"><?php echo $row['giorni']; ?></td>
+      <td class="td_classi"><?php echo $row['prezzo']; ?></td>
       <td class="td_utente"><?php echo $row['IDUtente']; ?></td>
-      <td class="gestione td_azione">
-        <div class="form-container-td">
-          <!-- Modifica pulsante -->
-          <form action="modificaProg.php" method="post">
-            <input type="hidden" name="id" value="<?php echo $row['IDProgetto']; ?>">
-            <input type="submit" value="Modifica" class="edit-btn">
-          </form>
-        </div>
-        <div class="form-container-td">
-          <!-- Elimina pulsante -->
-          <form action="backend/elimina_progetto.php" method="post">
-            <input type="hidden" name="id" value="<?php echo $row['IDProgetto']; ?>">
-            <input type="submit" value="Elimina" class="delete-btn" onclick="return confirm('Sei sicuro di voler eliminare questo progetto?');">
-          </form>
-        </div>
-      </td>
     </tr>
     <?php
     }

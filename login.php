@@ -2,14 +2,14 @@
     //error_reporting(E_ERROR | E_PARSE);
     session_start();
 
-    if (isset($_SESSION['email'])) { // se l'utente è già loggato viene automaticamente rimandato alla pagina.
+    if (isset($_SESSION['username'])) { // se l'utente è già loggato viene automaticamente rimandato alla pagina.
         header('Location: menu.php');
         exit;
     }
     if(isset($_POST["password"])){
 
         $passwd= $_POST['password'];
-        $user_email=$_POST['email'];
+        $username=$_POST['username'];
         
         //echo '<h1>'.$passwd.'</>';
 
@@ -23,7 +23,7 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
-        $query= "SELECT * FROM utente WHERE email='$user_email' AND password='$passwd'";
+        $query= "SELECT * FROM utente WHERE username='$username' AND password='$passwd'";
         //echo $query;
         $execute = mysqli_query($conn,$query);
         //print_r($execute);
@@ -31,10 +31,9 @@
         if(mysqli_num_rows($execute)>0) {
             $riga=mysqli_fetch_array($execute, MYSQLI_ASSOC);
 
-            $_SESSION['email'] = $user_email;
+            $_SESSION['username'] = $username;
             $_SESSION['password'] = $passwd;
-            $_SESSION['idutente'] = $riga["IDUtente"];
-            $_SESSION['nome'] = $riga['Nome'];
+            $_SESSION['idutente'] = $riga["ID"];
             if(!$riga["IDUtenteAutorizzante"]){
                 $_SESSION['admin'] = 1; 
             }
@@ -69,8 +68,8 @@
     <form method="post" action="">
         <h2>LOGIN</h2>
         <div>
-            <p>Mail</p>
-            <input type="email" name="email">
+            <p>Username</p>
+            <input type="text" name="username">
         </div>
         <div>
             <p>Password</p>

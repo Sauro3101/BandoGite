@@ -23,7 +23,7 @@
     </div>
   </div>
   <div class="header">
-    <h1>Gestione Offerte</h1>
+    <h1>Gestione Agenzie</h1>
   </div>
   <nav>
     <div class="search-container">
@@ -39,18 +39,18 @@
       </form>
     </div>
     <div class="add-project">
-      <a href="inseirsci_offerta.php">Inserisci offerta</a>
+      <a href="inseirsci_offerta.php">Inserisci agenzia</a>
     </div>
   </nav>
   <div class="container">
     <table>
       <tr>
         <th class="td_id">ID</th>
-        <th class="td_titolo">Meta</th>
-        <th class="td_anno">Data inizio</th>
-        <th class="td_classi">Giorni</th>
-        <th class="td_classi">Prezzo</th>
-        <th class="td_utente">Utente</th>
+        <th class="td_titolo">Nome</th>
+        <th class="td_anno">Indirizzo</th>
+        <th class="td_classi">Telefono</th>
+        <th class="td_classi">Telefono organizzatore</th>
+        <th class="td_utente">Certificazione ISO</th>
         <th class="td_azione">Azione</th>
       </tr>
       <?php
@@ -64,11 +64,11 @@
         unset($_POST['search']);
         
         // Query per selezionare il progetto cercato
-        $sql = "SELECT offerta.*, viaggio.Meta, viaggio.partenza, viaggio.giorni FROM `offerta` INNER JOIN 'viaggio' ON viaggio.ID = offerta.IDLotto WHERE viaggio.meta LIKE '%$tit%'";
+        $sql = "SELECT * FROM `agenzia` WHERE nome LIKE '%$tit%' OR indirizzo LIKE '%$tit%'";
         
       }else{
         // Query per selezionare tutti i progetti
-        $sql = "SELECT offerta.ID AS idd, offerta.prezzo, offerta.IDUtente, viaggio.Meta, viaggio.partenza, viaggio.giorni FROM offerta INNER JOIN viaggio ON viaggio.ID = offerta.IDLotto";
+        $sql = "SELECT * FROM `agenzia`";
       }
 
       $result = mysqli_query($conn, $sql);
@@ -77,12 +77,12 @@
       while ($row = mysqli_fetch_array($result)) {
       ?>
         <tr>
-      <td class="td_id"><?php echo $row['idd']; ?></td>
-      <td class="td_titolo"><?php echo $row['Meta']; ?></td>
-      <td class="td_anno"><?php echo $row['partenza']; ?></td>
-      <td class="td_classi"><?php echo $row['giorni']; ?></td>
-      <td class="td_classi"><?php echo $row['prezzo']; ?></td>
-      <td class="td_utente"><?php echo $row['IDUtente']; ?></td>
+      <td class="td_id"><?php echo $row['ID']; ?></td>
+      <td class="td_titolo"><?php echo $row['Nome']; ?></td>
+      <td class="td_anno"><?php echo $row['Indirizzo']; ?></td>
+      <td class="td_classi"><?php echo $row['Telefono']; ?></td>
+      <td class="td_classi"><?php echo $row['TelefonoOrganizzatore']; ?></td>
+      <td class="td_utente"><?php echo $row['CertificazioneISO']; ?></td>
       <td class="gestione td_azione">
         <div class="form-container-td">
           <!-- Modifica pulsante -->
