@@ -23,32 +23,26 @@
         align-items: center;
       }
 
-      .td_id{
-        width: 3%;
+      .td_id {
+        width: 10%;
       }
-
-      .td_titolo{
-        width: 15%;
-      }
-
-      .td_anno{
-        width: 7%;
-      }
-
-      .td_docenti{
-        width: 24%;
-      }
-
-      .td_classi{
+      .td_meta {
         width: 20%;
       }
-
-      .td_utente{
-        width: 5%;
+      .td_partenza {
+        width: 20%;
       }
-
-      .td_azione{
-        min-width: 20%;
+      .td_giorni {
+        width: 10%;
+      }
+      .td_prezzo {
+        width: 20%;
+      }
+      .td_utente {
+        width: 10%;
+      }
+      .td_punti {
+        width: 10%;
       }
 
       .form-container {

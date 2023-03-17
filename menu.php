@@ -21,6 +21,7 @@
       <a href="gestione_offerte.php">Gestione offerte</a>
       <a href="gestione_viaggi.php">Gestione viaggi</a>
       <a href="gestione_agenzie.php">Gestione agenzie</a>
+      <a href="classifica.php">Visualizza classifica</a>
     </div>
     <div class="logout">
       <a href="backend/logout.php">Logout</a>
@@ -67,11 +68,11 @@
         unset($_POST['search']);
         
         // Query per selezionare il progetto cercato
-        $sql = "SELECT offerta.ID AS idd, offerta.prezzo, offerta.IDUtente, viaggio.Meta, viaggio.partenza, viaggio.giorni FROM `offerta` INNER JOIN viaggio ON viaggio.ID = offerta.IDViaggio WHERE viaggio.meta LIKE '%$tit%'";
+        $sql = "SELECT offerta.ID AS idd, offerta.prezzo, offerta.IDUtente, viaggio.Meta, viaggio.partenza, viaggio.giorni FROM `offerta` INNER JOIN viaggio ON viaggio.ID = offerta.IDViaggio WHERE viaggio.meta LIKE '%$tit%' ORDER BY offerta.Punti DESC";
         
       }else{
         // Query per selezionare tutti i progetti
-        $sql = "SELECT offerta.ID AS idd, offerta.prezzo, offerta.IDUtente, viaggio.Meta, viaggio.partenza, viaggio.giorni FROM offerta INNER JOIN viaggio ON viaggio.ID = offerta.IDViaggio";
+        $sql = "SELECT offerta.ID AS idd, offerta.prezzo, offerta.IDUtente, viaggio.Meta, viaggio.partenza, viaggio.giorni FROM offerta INNER JOIN viaggio ON viaggio.ID = offerta.IDViaggio ORDER BY offerta.Punti DESC";
       }
 
       $result = mysqli_query($conn, $sql);

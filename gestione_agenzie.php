@@ -39,7 +39,7 @@
       </form>
     </div>
     <div class="add-project">
-      <a href="inseirsci_agenzia.php">Inserisci agenzia</a>
+      <a href="inserisci_agenzia.php">Inserisci agenzia</a>
     </div>
   </nav>
   <div class="container">

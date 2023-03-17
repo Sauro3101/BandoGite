@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Benvenuti!</title>
+  <link rel="icon" href="Stylesheets/FRicon.png">
+  <style>
+    body {
+        padding: 100px;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: rgb(235, 235, 235);
+        text-align: center;
+        height: 700px;
+    }
+
+    h1 {
+        margin-bottom: 50px;
+    }
+
+    .container {
+        text-align: left;
+        border-radius: 20px;
+        padding: 50px;
+        box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.546);
+        margin-bottom: 100px;
+    }
+
+    .button a {
+        text-decoration: none;
+        color: white;
+        background-color: rgb(32, 95, 171);
+        padding: 20px;
+        border-radius: 10px;
+        transition: 0.2s;
+    }
+
+    .button a:hover {
+        background-color: rgb(32, 51, 171);
+        border: none;
+        box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.261);
+    }
+  </style>
+</head>
+<body>
+    <h1>Sito web gite Checchetto</h1>
+    <div class="container">
+        <p>Questo sito web permette di inserire dei viaggi, delle agenzie e poi di registrare varie offerte valutando ciò che viene offerto con un punteggio ed infine di vedere la classifica delle offerte che hanno il numero maggiore di punti.</p>
+        <p>Per testare il sito è necessario importare il database. Il file per l'importazione si trova nella directory del sito ed è denominato <i>db_bandogite.sql</i>. Questo database contiene già dei valori di esempio utilizzati per delle prove precedenti.</p>
+        <p>Ci sono due tipi di utenti, un utente <b>"amministratore"</b> e un utente <b>"semplice"</b>. Sono stati creati vari utenti, per i test utilizzare i seguenti account:</p>
+        <p><b>Utente amministratore:</b> admin admin</p>
+        <p><b>Utente semplice:</b> MarioRossi Password123</p>
+        <p>L'utente amministrazione ha la possibilità di inserire ed eliminare offerte, agenzie e viaggi, mentre l'utente semplice ha la sola possibilità di inserire ed eliminare le offerte sulla base delle agenzie edei viaggi inseriti dall'amministratore. Entrambi gli utenti hanno la possibilità di visualizzare la classifica.</p>
+    </div>
+    <div class="button">
+        <a href="login.php">Entra nel sito!</a>
+    </div>
+</body>
+</html>

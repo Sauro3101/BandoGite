@@ -29,7 +29,7 @@
 	</div>
 	<div class="form-container">
 		<h1>Nuovo viaggio</h1>
-		<form action="nuovo_viaggio.php" method="post">
+		<form action="backend/nuovo_viaggio.php" method="post">
       <div>
         <label for="meta">Meta:</label>
         <input type="text" id="meta" name="meta">
