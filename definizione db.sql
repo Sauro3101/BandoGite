@@ -45,7 +45,7 @@ Agenzia{
 }
 
 CREATE TABLE Agenzia (
-    ID INT PRIMARY KEY,
+    ID INT PRIMARY KEY AUTO_INCREMENT,
     Nome VARCHAR(50) NOT NULL,
     Indirizzo VARCHAR(100) NOT NULL,
     Telefono VARCHAR(20) NOT NULL,
@@ -55,11 +55,11 @@ CREATE TABLE Agenzia (
     Assicurazione BOOLEAN NOT NULL
 );
 
-INSERT INTO Agenzia (ID, Nome, Indirizzo, Telefono, Organizzatore, TelefonoOrganizzatore, CertificazioneISO, Assicurazione)
+INSERT INTO Agenzia (Nome, Indirizzo, Telefono, Organizzatore, TelefonoOrganizzatore, CertificazioneISO, Assicurazione)
 VALUES
-    (1, 'Viaggi e Vacanze', 'Via Roma 10', '02-12345678', 'Mario Rossi', '338-1234567', TRUE, TRUE),
-    (2, 'EasyTravel', 'Via Milano 20', '02-87654321', 'Paolo Verdi', '335-9876543', FALSE, TRUE),
-    (3, 'Avventure nel Mondo', 'Via Torino 30', '02-23456789', 'Giuseppe Bianchi', '339-4567890', TRUE, FALSE);
+    ('Viaggi e Vacanze', 'Via Roma 10', '02-12345678', 'Mario Rossi', '338-1234567', TRUE, TRUE),
+    ('EasyTravel', 'Via Milano 20', '02-87654321', 'Paolo Verdi', '335-9876543', FALSE, TRUE),
+    ('Avventure nel Mondo', 'Via Torino 30', '02-23456789', 'Giuseppe Bianchi', '339-4567890', TRUE, FALSE);
 
 Offerta{
     ID
