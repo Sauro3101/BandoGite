@@ -1,9 +1,9 @@
 <?php
-      session_start();/*
-      if (!isset($_SESSION['username'])) { // se l'utente non è loggato viene automaticamente rimandato alla pagina di login.
+      session_start();
+      if (!isset($_SESSION['admin'])) { // se l'utente non è loggato viene automaticamente rimandato alla pagina di login.
         header('Location: login.php');
         exit;
-      }*/
+      }
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,26 +26,26 @@
       <a href="backend/logout.php">Logout</a>
     </div>
   </div>
+  <nav>
+    <div class="search-container">
+      <form action="" method="POST">
+        <?php
+          $tit = "";
+          if(isset($_POST['search'])){
+            $tit = $_POST['search'];
+          }
+          echo "<input type='text' placeholder='Cerca titolo...' name='search' id='search' value='".$tit."'>";
+        ?>
+        <button type="submit">Cerca</button>
+      </form>
+    </div>
+  </nav>
   <div class="container-menu">
     <h1>Ciao <?php echo $_SESSION['username']; ?>, benvenuto nell'area di amministrazione!</h1>
     <a href="gestione_offerte.php" class="btn">Gestione offerte</a>
     <a href="gestione_viaggi.php" class="btn">Gestione viaggi</a>
     <a href="gestione_agenzie.php" class="btn">Gestione agenzie</a>
   </div>
-    <nav>
-      <div class="search-container">
-        <form action="" method="POST">
-          <?php
-            $tit = "";
-            if(isset($_POST['search'])){
-              $tit = $_POST['search'];
-            }
-            echo "<input type='text' placeholder='Cerca titolo...' name='search' id='search' value='".$tit."'>";
-          ?>
-          <button type="submit">Cerca</button>
-        </form>
-      </div>
-    </nav>
   <div class="container">
       <table>
       <tr>
@@ -67,11 +67,11 @@
         unset($_POST['search']);
         
         // Query per selezionare il progetto cercato
-        $sql = "SELECT offerta.*, viaggio.Meta, viaggio.partenza, viaggio.giorni FROM `offerta` INNER JOIN 'viaggio' ON viaggio.ID = offerta.IDLotto WHERE viaggio.meta LIKE '%$tit%'";
+        $sql = "SELECT offerta.ID AS idd, offerta.prezzo, offerta.IDUtente, viaggio.Meta, viaggio.partenza, viaggio.giorni FROM `offerta` INNER JOIN viaggio ON viaggio.ID = offerta.IDViaggio WHERE viaggio.meta LIKE '%$tit%'";
         
       }else{
         // Query per selezionare tutti i progetti
-        $sql = "SELECT offerta.ID AS idd, offerta.prezzo, offerta.IDUtente, viaggio.Meta, viaggio.partenza, viaggio.giorni FROM offerta INNER JOIN viaggio ON viaggio.ID = offerta.IDLotto";
+        $sql = "SELECT offerta.ID AS idd, offerta.prezzo, offerta.IDUtente, viaggio.Meta, viaggio.partenza, viaggio.giorni FROM offerta INNER JOIN viaggio ON viaggio.ID = offerta.IDViaggio";
       }
 
       $result = mysqli_query($conn, $sql);

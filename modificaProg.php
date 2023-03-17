@@ -43,8 +43,8 @@
     
     $query2 = "SELECT * FROM riferimento WHERE IDProgetto='$IDProgetto'";
     $execute2 = mysqli_query($conn, $query2);
-
   ?>
+  
   <div class="form-container">
 		<h1>Modifica Progetto</h1>
     <form action="backend/updateProg.php" method="POST">

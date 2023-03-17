@@ -1,6 +1,6 @@
 <?php
       session_start();
-      if (!isset($_SESSION['username'])) { // se l'utente non è loggato viene automaticamente rimandato alla pagina di login.
+      if (!isset($_SESSION['admin'])) { // se l'utente non è loggato viene automaticamente rimandato alla pagina di login.
         header('Location: login.php');
         exit;
       }
@@ -83,14 +83,14 @@
         <div class="form-container-td">
           <!-- Modifica pulsante -->
           <form action="modificaUtente.php" method="post">
-            <input type="hidden" name="id" value="<?php echo $row['IDUtente']; ?>">
+            <input type="hidden" name="id" value="<?php echo $row['ID']; ?>">
             <input type="submit" value="Modifica" class="edit-btn">
           </form>
         </div>
         <div class="form-container-td">
           <!-- Elimina pulsante -->
           <form action="elimina_utente.php" method="post">
-            <input type="hidden" name="id" value="<?php echo $row['IDUtente']; ?>">
+            <input type="hidden" name="id" value="<?php echo $row['ID']; ?>">
             <input type="submit" value="Elimina" class="delete-btn" onclick="return confirm('Sei sicuro di voler eliminare questo progetto?');">
           </form>
         </div>

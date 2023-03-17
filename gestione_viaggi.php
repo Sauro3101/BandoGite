@@ -1,6 +1,6 @@
 <?php
       session_start();
-      if (!isset($_SESSION['username'])) { // se l'utente non è loggato viene automaticamente rimandato alla pagina di login.
+      if (!isset($_SESSION['admin'])) { // se l'utente non è loggato viene automaticamente rimandato alla pagina di login.
         header('Location: login.php');
         exit;
       }
@@ -39,7 +39,7 @@
       </form>
     </div>
     <div class="add-project">
-      <a href="inseirsci_offerta.php">Inserisci viaggio</a>
+      <a href="inseirsci_viaggio.php">Inserisci viaggio</a>
     </div>
   </nav>
   <div class="container">
@@ -81,16 +81,9 @@
       <td class="td_classi"><?php echo $row['Giorni']; ?></td>
       <td class="gestione td_azione">
         <div class="form-container-td">
-          <!-- Modifica pulsante -->
-          <form action="modificaProg.php" method="post">
-            <input type="hidden" name="id" value="<?php echo $row['IDProgetto']; ?>">
-            <input type="submit" value="Modifica" class="edit-btn">
-          </form>
-        </div>
-        <div class="form-container-td">
           <!-- Elimina pulsante -->
-          <form action="backend/elimina_progetto.php" method="post">
-            <input type="hidden" name="id" value="<?php echo $row['IDProgetto']; ?>">
+          <form action="elimina_viaggio.php" method="post">
+            <input type="hidden" name="id" value="<?php echo $row['ID']; ?>">
             <input type="submit" value="Elimina" class="delete-btn" onclick="return confirm('Sei sicuro di voler eliminare questo progetto?');">
           </form>
         </div>

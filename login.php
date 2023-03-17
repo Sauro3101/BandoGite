@@ -34,11 +34,13 @@
             $_SESSION['username'] = $username;
             $_SESSION['password'] = $passwd;
             $_SESSION['idutente'] = $riga["ID"];
-            if(!$riga["IDUtenteAutorizzante"]){
-                $_SESSION['admin'] = 1; 
+            if($riga["Amministrazione"]){
+                $_SESSION['admin'] = 1;
+                header('Location: menu.php');
+            } else {
+                header('Location: gestione_offerte.php');
             }
             
-            header('Location: menu.php');
         }else{
             echo "Login non valido.";
         }

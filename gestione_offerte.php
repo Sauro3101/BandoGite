@@ -11,17 +11,32 @@
   <link rel="icon" href="Immagini/fav-icon.png" type="image/png">
 </head>
 <body>
+  <?php 
+  if(isset($_SESSION['admin'])){
+  ?>
   <div class="navbar">
-  <div class="menu">
-    <a href="menu.php">Menu</a>
-    <a href="gestione_offerte.php">Gestione offerte</a>
-    <a href="gestione_viaggi.php">Gestione viaggi</a>
-    <a href="gestione_agenzie.php">Gestione agenzie</a>
-  </div>
+    <div class="menu">
+      <a href="menu.php">Menu</a>
+      <a href="gestione_offerte.php">Gestione offerte</a>
+      <a href="gestione_viaggi.php">Gestione viaggi</a>
+      <a href="gestione_agenzie.php">Gestione agenzie</a>
+    </div>
     <div class="logout">
       <a href="backend/logout.php">Logout</a>
     </div>
   </div>
+  <?php
+  } else {
+  ?>
+  <div class="navbar">
+    <div class="menu">
+      <a href="gestione_offerte.php">Gestione offerte</a>
+    </div>
+    <div class="logout">
+      <a href="backend/logout.php">Logout</a>
+    </div>
+  </div>
+  <?php }?>
   <div class="header">
     <h1>Gestione Offerte</h1>
   </div>
@@ -39,7 +54,7 @@
       </form>
     </div>
     <div class="add-project">
-      <a href="inseirsci_offerta.php">Inserisci offerta</a>
+      <a href="inserisci_offerta.php">Inserisci offerta</a>
     </div>
   </nav>
   <div class="container">
@@ -64,11 +79,11 @@
         unset($_POST['search']);
         
         // Query per selezionare il progetto cercato
-        $sql = "SELECT offerta.*, viaggio.Meta, viaggio.partenza, viaggio.giorni FROM `offerta` INNER JOIN 'viaggio' ON viaggio.ID = offerta.IDLotto WHERE viaggio.meta LIKE '%$tit%'";
+        $sql = "SELECT offerta.ID AS idd, offerta.prezzo, offerta.IDUtente, viaggio.Meta, viaggio.partenza, viaggio.giorni FROM `offerta` INNER JOIN viaggio ON viaggio.ID = offerta.IDViaggio WHERE viaggio.meta LIKE '%$tit%'";
         
       }else{
         // Query per selezionare tutti i progetti
-        $sql = "SELECT offerta.ID AS idd, offerta.prezzo, offerta.IDUtente, viaggio.Meta, viaggio.partenza, viaggio.giorni FROM offerta INNER JOIN viaggio ON viaggio.ID = offerta.IDLotto";
+        $sql = "SELECT offerta.ID AS idd, offerta.prezzo, offerta.IDUtente, viaggio.Meta, viaggio.partenza, viaggio.giorni FROM offerta INNER JOIN viaggio ON viaggio.ID = offerta.IDViaggio";
       }
 
       $result = mysqli_query($conn, $sql);
@@ -85,16 +100,9 @@
       <td class="td_utente"><?php echo $row['IDUtente']; ?></td>
       <td class="gestione td_azione">
         <div class="form-container-td">
-          <!-- Modifica pulsante -->
-          <form action="modificaProg.php" method="post">
-            <input type="hidden" name="id" value="<?php echo $row['IDProgetto']; ?>">
-            <input type="submit" value="Modifica" class="edit-btn">
-          </form>
-        </div>
-        <div class="form-container-td">
           <!-- Elimina pulsante -->
-          <form action="backend/elimina_progetto.php" method="post">
-            <input type="hidden" name="id" value="<?php echo $row['IDProgetto']; ?>">
+          <form action="elimina_offerta.php" method="post">
+            <input type="hidden" name="id" value="<?php echo $row['idd']; ?>">
             <input type="submit" value="Elimina" class="delete-btn" onclick="return confirm('Sei sicuro di voler eliminare questo progetto?');">
           </form>
         </div>
