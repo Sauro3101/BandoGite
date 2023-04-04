@@ -114,10 +114,6 @@
       <div>
         <label for="prezzo">Prezzo:</label>
         <input type="text" id="prezzo" name="prezzo" required>
-        <div class="point_section">
-          <label for="prezzo-point">Punti:</label>
-          <input type="number" id="prezzo-point" name="prezzo-point" class="point" min="0" max="100" required>
-        </div>
       </div>
       <hr>
       <div>
@@ -128,19 +124,11 @@
           <option value="3">3</option>
           <option value="Inferiore">Inferiore</option>
         </select>
-        <div class="point_section">
-          <label for="stelle-point">Punti:</label>
-          <input type="number" id="stelle-point" name="stelle-point" class="point" min="0" max="100" required>
-        </div>
       </div>
       <hr>
       <div>
         <label for="alunni">Alunni per camera:</label>
         <input type="number" id="alunni" name="alunni" required>
-        <div class="point_section">
-          <label for="alunni-point">Punti:</label>
-          <input type="number" id="alunni-point" name="alunni-point" class="point" min="0" max="100" required>
-        </div>
       </div>
       <hr>
       <div>
@@ -151,10 +139,6 @@
           <option value="Limitrofa">Limitrofa</option>
           <option value="Periferica">Periferica</option>
         </select>
-        <div class="point_section">
-          <label for="zona-point">Punti:</label>
-          <input type="number" id="zona-point" name="zona-point" class="point" min="0" max="100" required>
-        </div>
       </div>
       <hr>
       <div>
@@ -166,10 +150,6 @@
           <label for="mezzi-no">No</label>
         </div>
         <br>
-        <div class="point_section">
-          <label for="mezzi-point">Punti:</label>
-          <input type="number" id="mezzi-point" name="mezzi-point" class="point" min="0" max="100" required>
-        </div>
       </div>
       <hr>
       <div>
@@ -179,10 +159,6 @@
           <option value="Ristorante">Ristorante</option>
           <option value="Altro ristorante">Altro ristorante</option>
         </select>
-        <div class="point_section">
-          <label for="ristorazione-point">Punti:</label>
-          <input type="number" id="ristorazione-point" name="ristorazione-point" class="point" min="0" max="100" required>
-        </div>
       </div>
       <hr>
       <div>
@@ -191,10 +167,6 @@
           <option value="Servito">Servito</option>
           <option value="Buffet">Buffet</option>
         </select>
-        <div class="point_section">
-          <label for="servizio-point">Punti:</label>
-          <input type="number" id="servizio-point" name="servizio-point" class="point" min="0" max="100" required>
-        </div>
       </div>
       <hr>
       <div>
@@ -206,10 +178,6 @@
           <option value="Cuccette 4">Cuccette 4</option>
           <option value="Cuccette 6">Cuccette 6</option>
         </select>
-        <div class="point_section">
-          <label for="treno-point">Punti:</label>
-          <input type="number" id="treno-point" name="treno-point" class="point" min="0" max="100" required>
-        </div>
       </div>
       <hr>
       <div>
@@ -220,10 +188,6 @@
           <option value="3">2 Autisti</option>
           <option value="4">Viaggio A/R</option>
         </select>
-        <div class="point_section">
-          <label for="bus-point">Punti:</label>
-          <input type="number" id="bus-point" name="bus-point" class="point" min="0" max="100" required>
-        </div>
       </div>
       <hr>
       <div>
@@ -233,10 +197,6 @@
           <option value="2">tra 4 e 5 anni</option>
           <option value="3">< 4 anni</option>
         </select>
-        <div class="point_section">
-          <label for="esperienza-point">Punti:</label>
-          <input type="number" id="esperienza-point" name="esperienza-point" class="point" min="0" max="100" required>
-        </div>
       </div>
       <hr>
       <input type="hidden" name="tot" id="tot" value="0" />

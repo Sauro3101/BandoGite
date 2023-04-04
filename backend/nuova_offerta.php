@@ -8,6 +8,83 @@ session_start();
   if ($conn->connect_error) {
       die("Connessione fallita: " . $conn->connect_error);
   }
+
+
+
+/*
+
+$prezzo = $_POST["prezzo"];
+		$prezzo_punteggio = 0;
+		if ($prezzo < 50) {
+			$prezzo_punteggio = 5;
+		} elseif ($prezzo >= 50 && $prezzo <= 100) {
+			$prezzo_punteggio = 3;
+		} else {
+			$prezzo_punteggio = 1;
+		}
+
+		$stelle = $_POST["stelle"];
+		$stelle_punteggio = 0;
+		if ($stelle == "4") {
+			$stelle_punteggio = 5;
+		} elseif ($stelle == "3 sup.") {
+			$stelle_punteggio = 4;
+		} elseif ($stelle == "3") {
+			$stelle_punteggio = 3;
+		} else {
+			$stelle_punteggio = 1;
+		}
+
+		$alunni = $_POST["alunni"];
+		$alunni_punteggio = 0;
+		if ($alunni <= 2) {
+			$alunni_punteggio = 5;
+		} elseif ($alunni == 3) {
+			$alunni_punteggio = 3;
+		} else {
+			$alunni_punteggio = 1;
+		}
+
+		$zona = $_POST["zona"];
+		$zona_punteggio = 0;
+		if ($zona == "Centrale") {
+			$zona_punteggio = 5;
+		} elseif ($zona == "Semicentrale") {
+			$zona_punteggio = 4;
+		} elseif ($zona == "Limitrofa") {
+			$zona_punteggio = 3;
+		} else {
+			$zona_punteggio = 1;
+		}
+
+		$mezzi = $_POST["mezzi"];
+		$mezzi_punteggio = 0;
+		if ($mezzi == "si") {
+			$mezzi_punteggio = 5;
+		} else {
+			$mezzi_punteggio = 1;
+		}
+
+		$ristorazione = $_POST["ristorazione"];
+		$ristorazione_punteggio = 0;
+		if ($ristorazione == "Hotel") {
+			$ristorazione_punteggio = 5;
+		} elseif ($ristorazione == "Ristorante") {
+			$ristorazione_punteggio = 3;
+		} else {
+			$ristorazione_punteggio = 1;
+		}
+
+		$servizio = $_POST["servizio"];
+		$servizio_punteggio = 0;
+		if ($servizio == "Servito") {
+			$servizio_punteggio
+
+*/
+
+
+
+
   
   // Verifica che il form sia stato inviato
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
