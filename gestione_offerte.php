@@ -20,6 +20,7 @@
       <a href="gestione_offerte.php">Gestione offerte</a>
       <a href="gestione_viaggi.php">Gestione viaggi</a>
       <a href="gestione_agenzie.php">Gestione agenzie</a>
+      <a href="classifica.php">Visualizza classifica</a>
     </div>
     <div class="logout">
       <a href="backend/logout.php">Logout</a>
